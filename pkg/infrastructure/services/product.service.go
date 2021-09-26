@@ -1,9 +1,10 @@
-package products
+package services
 
 import (
 	"api_test_hexagonal/config/databases/mongodb"
-	"api_test_hexagonal/pkg/products/domain/entities"
+	"api_test_hexagonal/pkg/domain/entities"
 	"context"
+	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
@@ -23,6 +24,7 @@ func (p *ProductService) GetAllProducts() (entities.IProductsEntity, error) {
 		return nil, err
 	}
 
+
 	for cur.Next(ctx) {
 		var product entities.IProductEntity
 		err = cur.Decode(&product)
@@ -30,6 +32,7 @@ func (p *ProductService) GetAllProducts() (entities.IProductsEntity, error) {
 			return nil, err
 		}
 		products = append(products, &product)
+	fmt.Println("response get all products: ", products)
 	}
 
 	return products, nil

@@ -1,13 +1,13 @@
 package entities
 
 import (
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
 )
 
 // IProductEntity data
 type IProductEntity struct {
-	ID primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
+	//ID primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
+	//ID string primative.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
 	Name string `json:"name"`
 	Status bool `json:"status"`
 	Description string `json:"description"`

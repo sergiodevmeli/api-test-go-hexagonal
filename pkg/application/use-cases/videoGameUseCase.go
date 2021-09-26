@@ -1,8 +1,8 @@
-package use_case
+package use_cases
 
 import (
-	entities2 "api_test_hexagonal/pkg/video_games/domain/entities"
-	"api_test_hexagonal/pkg/video_games/domain/repositories"
+	entities2 "api_test_hexagonal/pkg/domain/entities"
+	"api_test_hexagonal/pkg/domain/repositories"
 )
 
 type VideoGameUseCase struct {

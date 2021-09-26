@@ -1,16 +1,17 @@
 package handlers
 
 import (
-	use_case "api_test_hexagonal/pkg/products/application/use-case"
-	"api_test_hexagonal/pkg/products/domain/entities"
-	"api_test_hexagonal/pkg/products/infrastructure/services/products"
+	use_case "api_test_hexagonal/pkg/application/use-cases"
+	"api_test_hexagonal/pkg/domain/entities"
+	"api_test_hexagonal/pkg/infrastructure/services"
 	"api_test_hexagonal/pkg/utils"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
 type ProductHandler struct {
-	service *products.ProductService
+	service *services.ProductService
 }
 
 func Product() ProductHandler {
@@ -27,6 +28,8 @@ func (product *ProductHandler) GetAll(writer http.ResponseWriter, request *http.
 		response := utils.NewResponse(utils.Error, "Error en el get", nil)
 		utils.ResponseJSON(writer, http.StatusBadRequest, response)
 	}
+
+	fmt.Println("get all products: ", productList)
 
 	response := utils.NewResponse(utils.Message, "Lista de productos", productList)
 	utils.ResponseJSON(writer, http.StatusCreated, response)

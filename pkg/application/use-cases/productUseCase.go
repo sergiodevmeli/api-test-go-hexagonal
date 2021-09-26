@@ -1,8 +1,8 @@
-package use_case
+package use_cases
 
 import (
-	"api_test_hexagonal/pkg/products/domain/entities"
-	"api_test_hexagonal/pkg/products/domain/repositories"
+	"api_test_hexagonal/pkg/domain/entities"
+	"api_test_hexagonal/pkg/domain/repositories"
 )
 
 type ProductUseCase struct {

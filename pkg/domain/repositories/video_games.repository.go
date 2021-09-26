@@ -1,6 +1,8 @@
 package repositories
 
-import "api_test_hexagonal/pkg/video_games/domain/entities"
+import (
+	"api_test_hexagonal/pkg/domain/entities"
+)
 
 type IVideoGamesRepository interface {
 	CreateVideoGame(videoGame entities.IVideoGameEntity) error

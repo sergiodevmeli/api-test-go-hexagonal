@@ -1,8 +1,8 @@
-package video_games
+package services
 
 import (
 	"api_test_hexagonal/config/databases/mysql"
-	"api_test_hexagonal/pkg/video_games/domain/entities"
+	"api_test_hexagonal/pkg/domain/entities"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"

@@ -1,17 +1,17 @@
 package handlers
 
 import (
+	"api_test_hexagonal/pkg/application/use-cases"
+	"api_test_hexagonal/pkg/domain/entities"
+	"api_test_hexagonal/pkg/infrastructure/services"
 	"api_test_hexagonal/pkg/utils"
-	"api_test_hexagonal/pkg/video_games/application/use_case"
-	"api_test_hexagonal/pkg/video_games/domain/entities"
-	"api_test_hexagonal/pkg/video_games/infrastructure/services/video_games"
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
 
 type VideoGameHandler struct {
-	service *video_games.VideoGameService
+	service *services.VideoGameService
 }
 
 func VideoGame() VideoGameHandler {
@@ -21,7 +21,7 @@ func VideoGame() VideoGameHandler {
 func (videoGame *VideoGameHandler) GetAll(writer http.ResponseWriter, request *http.Request){
 	if utils.VerifyMethodHttp(writer, request.Method, http.MethodGet) { return }
 
-	videoGameUseCase := use_case.VideoGameUseCase{Repository: videoGame.service}
+	videoGameUseCase := use_cases.VideoGameUseCase{Repository: videoGame.service}
 
 	videoGameList, err := videoGameUseCase.GetAllVideoGames()
 	if err != nil {
@@ -37,7 +37,7 @@ func (videoGame *VideoGameHandler) GetAll(writer http.ResponseWriter, request *h
 func (videoGame *VideoGameHandler) Create(writer http.ResponseWriter, request *http.Request) {
 	if utils.VerifyMethodHttp(writer, request.Method, http.MethodPost) { return }
 
-	videoGameUseCase := use_case.VideoGameUseCase{Repository: videoGame.service}
+	videoGameUseCase := use_cases.VideoGameUseCase{Repository: videoGame.service}
 	var newVideoGame entities.IVideoGameEntity
 
 	err := json.NewDecoder(request.Body).Decode(&newVideoGame)

@@ -1,6 +1,8 @@
 package repositories
 
-import "api_test_hexagonal/pkg/products/domain/entities"
+import (
+	"api_test_hexagonal/pkg/domain/entities"
+)
 
 type IProductRepository interface {
 	CreateProduct(product entities.IProductEntity) error

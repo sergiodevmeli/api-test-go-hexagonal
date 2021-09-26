@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"api_test_hexagonal/pkg/products/infrastructure/handlers"
+	"api_test_hexagonal/pkg/infrastructure/handlers"
 	"net/http"
 )
 
